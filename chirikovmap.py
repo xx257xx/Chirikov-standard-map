@@ -4,14 +4,16 @@ import numpy as np
 
 
 for K in np.linspace(0.0, 1.0, 101):  
-    fig = figure(figsize=(50, 50))
+    fig = plt.figure(figsize=(50, 50))
     plt.axis('off')
+    
+    xs = []
+    ps = []
+    
     for k in range(49):
         for j in range(49):
             x = 0.02 + 0.02*j
             p = 0.02 + 0.02*k
-            xs = []
-            ps = []
             for i in range(300):
                 xs.append(x)
                 ps.append(p)
@@ -21,7 +23,6 @@ for K in np.linspace(0.0, 1.0, 101):
                 x = x % 1.0
             
 
-            
+    plt.scatter(xs,ps,color='black')
 
     plt.savefig(str(K) + '.png')
-            
